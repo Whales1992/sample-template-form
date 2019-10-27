@@ -1,21 +1,67 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import BankDeets from 'bankdeets'
+import BankDeets from './src/components/BankDeets.js'
 import Grid from '@material-ui/core/Grid';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
+import Paper from '@material-ui/core/Paper';
+import { makeStyles } from '@material-ui/core/styles';
+import { green } from '@material-ui/core/colors';
 
+const useStyles = makeStyles(theme => ({
+  root: {
+    display: 'flex',
+    alignItems: 'center',
+  },
+  paper: {
+    marginTop: theme.spacing(3),
+    width: '100%',
+    overflowX: 'auto',
+    padding: theme.spacing(3, 2),
+    display: 'flex',
+    flexDirection: 'column'
+  },
+  wrapper: {
+    margin: theme.spacing(1),
+    position: 'relative',
+  },
+  buttonSuccess: {
+    backgroundColor: green[500],
+    '&:hover': {
+      backgroundColor: green[700],
+    },
+  },
+  fabProgress: {
+    color: green[500],
+    position: 'absolute',
+    top: -6,
+    left: -6,
+    zIndex: 1,
+  },
+  buttonProgress: {
+    color: green[500],
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    marginTop: -12,
+    marginLeft: -12,
+  },
+}));
 
 
 function App() {
+  const classes = useStyles();
+
   return (
     <div className="App">
       <Container maxWidth="sm">
         <CssBaseline />
         <Introduction />
-        <BankDeets />
+        <Paper className={classes.paper}>
+          <BankDeets />
+        </Paper>
         <ApiDocs/>
       </Container>
     </div>
@@ -85,6 +131,9 @@ function ApiDocs(props){
             <li>Vietnam</li>
             <li>Switzerland</li>
             <li>Malaysia</li>
+            <li>Pakistan</li>
+            <li>Israel</li>
+            <li>Turkey</li>
           </ul>
 
         Contribute to the list of supported currencies <a href="https://github.com/321k/bankdeets/blob/master/src/components/BankDetails.js">here</a> 
