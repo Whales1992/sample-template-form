@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import BankDeets from './src/components/BankDeets.js'
+import BankDeets from 'bankdeets'
 import Grid from '@material-ui/core/Grid';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
@@ -101,6 +101,7 @@ function ApiDocs(props){
               <li>Norwegian</li>
               <li>Danish</li>
               <li>Finnish</li>
+              <li>French</li>
             </ul>
 
           Contribute to translations <a href="https://github.com/321k/bankdeets/blob/master/src/translation.js">here</a>
