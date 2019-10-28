@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+//import BankDeets from './src/App.js'
 import BankDeets from 'bankdeets'
 import Grid from '@material-ui/core/Grid';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -85,7 +86,6 @@ function ApiDocs(props){
       justify="flex-start"
       alignItems="flex-start"
     >
-      <Typography align="left">
         <Grid item xs={12}>
           <h2>API</h2>
           <ul>
@@ -139,7 +139,6 @@ function ApiDocs(props){
 
         Contribute to the list of supported currencies <a href="https://github.com/321k/bankdeets/blob/master/src/components/BankDetails.js">here</a> 
         </Grid>
-      </Typography>
     </Grid>
   )
 }
