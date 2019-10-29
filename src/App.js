@@ -187,6 +187,10 @@ function ApiDocs(props){
     >
       <Grid item xs={12}>
           <Typography align='left'>
+            <h2>Installation</h2>
+            <ul>
+              <li>npm install bankdeets</li>
+            </ul>
             <h2>Supported currencies</h2>
             <ul>
               <li>Eurozone</li>
