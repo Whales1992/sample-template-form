@@ -134,6 +134,7 @@ function App() {
   return (
     <div>
       <div className="App">
+        <WorldEmoji />
         <div style={{position: 'relative', top: 30}}>
           <Container maxWidth="sm">
             <CssBaseline />
@@ -244,6 +245,19 @@ function ApiDocs(props){
       </Grid>
     </Grid>
   )
+}
+
+function WorldEmoji (props){
+  
+  const f = ['🌎', '🌍', '🌏'];
+
+  const loop = () => {
+    window.location.hash = f[Math.floor((Date.now()/100)%f.length)];
+    setTimeout(loop, 1000);
+    return f[Math.floor((Date.now()/100)%f.length)]
+  }
+  
+  return <div style={{display: 'none'}}>{loop()}</div>
 }
 
 export default App;
