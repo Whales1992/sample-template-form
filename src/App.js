@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-//import BankDeets from './src/App.js'
+//import BankDeets from './src/index.js'
 import BankDeets from 'bankdeets'
 import Grid from '@material-ui/core/Grid';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -84,7 +84,11 @@ const supported_countries = [
 'SGP',
 'SGS',
 'TUR',
-'VNM'
+'VNM',
+'ARG',
+'ARE',
+'BRA',
+'CHL'
 ]
 
 const useStyles = makeStyles(theme => ({
@@ -134,7 +138,6 @@ function App() {
   return (
     <div>
       <div className="App">
-        <WorldEmoji />
         <div style={{position: 'relative', top: 30}}>
           <Container maxWidth="sm">
             <CssBaseline />
@@ -186,8 +189,7 @@ function ApiDocs(props){
       alignItems="flex-start"
     >
       <Grid item xs={12}>
-          <Typography align='left'>
-            <h2>Installation</h2>
+        <h2>Installation</h2>
             <ul>
               <li>npm install bankdeets</li>
             </ul>
@@ -219,22 +221,22 @@ function ApiDocs(props){
               <li>Pakistan</li>
               <li>Israel</li>
               <li>Turkey</li>
+              <li>Brazil</li>
+              <li>Chile</li>
+              <li>Argentina</li>
+              <li>UAE</li>
             </ul>
 
             Contribute to the list of supported currencies <a href="https://github.com/321k/bankdeets/blob/master/src/components/BankDetails.js">here</a> 
-          </Typography>
         </Grid>
       <Grid item xs={12}>
-        <Typography align='left'>
           <h2>API</h2>
           <ul>
             <li><b>submitURL</b>="where to post the form data to"</li>
             <li>Example: {'<BankDeets submitURL="bankdeets.co/bankdeets" />'}</li>
           </ul>
-        </Typography>
       </Grid>
-      <Grid item xs={12}>
-        <Typography align='left'>
+      <Grid item xs={12}>        
         <h2>Supported languages</h2>  
           <ul>
             <li>English</li>
@@ -245,23 +247,10 @@ function ApiDocs(props){
             <li>French</li>
           </ul>
         Contribute to translations <a href="https://github.com/321k/bankdeets/blob/master/src/translation.js">here</a>
-        </Typography>
       </Grid>
     </Grid>
   )
 }
 
-function WorldEmoji (props){
-  
-  const f = ['🌎', '🌍', '🌏'];
-
-  const loop = () => {
-    window.location.hash = f[Math.floor((Date.now()/100)%f.length)];
-    setTimeout(loop, 1000);
-    return f[Math.floor((Date.now()/100)%f.length)]
-  }
-  
-  return <div style={{display: 'none'}}>{loop()}</div>
-}
 
 export default App;
