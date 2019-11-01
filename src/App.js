@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-//import BankDeets from './src/index.js'
+// import BankDeets from './src/index.js'
 import BankDeets from 'bankdeets'
 import Grid from '@material-ui/core/Grid';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -224,7 +224,7 @@ function ApiDocs(props){
               <li>Brazil</li>
               <li>Chile</li>
               <li>Argentina</li>
-              <li>UAE</li>
+              <li>Turkey</li>
             </ul>
 
             Contribute to the list of supported currencies <a href="https://github.com/321k/bankdeets/blob/master/src/components/BankDetails.js">here</a> 
