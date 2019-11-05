@@ -143,7 +143,7 @@ function App() {
             <CssBaseline />
             <Introduction />
             <Paper className={classes.paper}>
-              <BankDeets />
+              <BankDeets submitURL="http://payspresso.io/api/v1/bank-details" />
             </Paper>
             <ApiDocs/>
           </Container>

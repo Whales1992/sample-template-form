@@ -30,18 +30,8 @@ export default function Address (props){
     <React.Fragment>
       <FormControl className={classes.formControl}>
         <TextField
-          id="addressLine1"
-          label={<Translate text='Address (line 1)'/>}
-          className={classes.textField}
-          value={props.city}
-          onChange={props.onChange} 
-          margin="normal"
-        />
-      </FormControl>
-      <FormControl className={classes.formControl}>
-        <TextField
-          id="addressLine1"
-          label={<Translate text='Address (line 2)'/>}
+          id="city"
+          label={<Translate text='City'/>}
           className={classes.textField}
           value={props.city}
           onChange={props.onChange} 
@@ -60,8 +50,18 @@ export default function Address (props){
       </FormControl>
       <FormControl className={classes.formControl}>
         <TextField
-          id="city"
-          label={<Translate text='City'/>}
+          id="addressLine1"
+          label={<Translate text='Address (line 1)'/>}
+          className={classes.textField}
+          value={props.city}
+          onChange={props.onChange} 
+          margin="normal"
+        />
+      </FormControl>
+      <FormControl className={classes.formControl}>
+        <TextField
+          id="addressLine1"
+          label={<Translate text='Address (line 2)'/>}
           className={classes.textField}
           value={props.city}
           onChange={props.onChange} 
