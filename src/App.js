@@ -224,8 +224,7 @@ function ApiDocs(props){
               <li>Brazil</li>
               <li>Chile</li>
               <li>Argentina</li>
-              <li>Turkey</li>
-            </ul>
+            </ul> 
 
             Contribute to the list of supported currencies <a href="https://github.com/321k/bankdeets/blob/master/src/components/BankDetails.js">here</a> 
         </Grid>

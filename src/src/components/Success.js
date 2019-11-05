@@ -3,7 +3,7 @@ import Button from '@material-ui/core/Button';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import TextField from '@material-ui/core/TextField';
 import Divider from '@material-ui/core/Divider';
-import { Translate } from 'react-translated';
+
 
 
 export default class SuccessScreenContainer extends React.Component{
@@ -39,7 +39,7 @@ function SuccessScreen (props){
 function Error (props){
   return (
     <div>
-    <h2><Translate text="Incorrect information"/></h2>
+    <h2>Incorrect information</h2>
       {
         props.response.errors ? props.response.errors.map(error => (
           <div styles={{margin: 10, padding: 10}}>
@@ -56,8 +56,8 @@ function Error (props){
 function Validated (props) {
   return (
     <div>
-      <h2><Translate text="The bank details are valid"/></h2>
-      <Translate text="Verified by TransferWise"/>, ID: {props.response.id}
+      <h2>The bank details are valid</h2>
+      Verified by TransferWise, ID: {props.response.id}
     </div>
   )
 }
@@ -65,8 +65,8 @@ function Validated (props) {
 function Success (props) {
   return (
     <div>
-      <h2><Translate text="Bank details submitted"/></h2>
-      <Translate text="Thank you"/>
+      <h2>Bank details submitted</h2>
+      Thank you
     </div>
   )
 }
@@ -76,7 +76,7 @@ function Default (props){
   const bankDetails = props.bankDetails
   return(
     <div>
-    <h2><Translate text="Beneficiary"/></h2>
+    <h2>Beneficiary</h2>
     {
       Object.keys(payload).map((key, i) => (
         payload[key] !== '' ?
@@ -89,7 +89,7 @@ function Default (props){
       ))
     }
 
-    <h2><Translate text="Bank information"/></h2>
+    <h2>Bank information</h2>
     {
       Object.keys(bankDetails).map((key, i) => (
         bankDetails[key] !== '' ?

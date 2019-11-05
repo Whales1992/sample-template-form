@@ -17,6 +17,8 @@ import Step from '@material-ui/core/Step';
 import StepButton from '@material-ui/core/StepButton';
 import PersonalOrBusiness from './PersonalOrBusiness.js'
 import Success from './Success.js'
+import StepLabel from '@material-ui/core/StepLabel';
+import Address from './Address.js'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -75,7 +77,7 @@ export default class BankDeetsContainer extends React.Component {
       loading: false,
       success: false,
       error: false,
-      validated: false
+      validated: null
     }
     this.handleCountryChange = this.handleCountryChange.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -278,6 +280,7 @@ class BankDeetsStepper extends React.Component{
   };
 
   setStep(event) {
+    console.log(event.currentTarget.value)
     this.setState({activeStep: parseInt(event.currentTarget.value)})
   };
 
@@ -289,9 +292,11 @@ class BankDeetsStepper extends React.Component{
         <Container maxWidth="sm" style={{minHeight: 400}}>
           <Stepper alternativeLabel activeStep={this.state.activeStep}>
             {steps.map((label, index) => (
-              <Step key={label}>
+              <Step key={label}>  
                 <StepButton value={index} onClick={this.setStep}>
-                  <Translate text={label}/>
+                  <StepLabel value={index} error={(this.state.activeStep===3 && index===2) ? this.props.error : false}>
+                    <Translate text={label}/>
+                  </StepLabel>
                 </StepButton>
               </Step>
             ))}
@@ -327,57 +332,53 @@ function Body(props){
   switch(props.activeStep){
     case(0):
       return (
-          <Grid item xs={12}>
             <PersonalOrBusiness {...props}/>
-          </Grid>
       )
       break;
     case(1):
       return (
         <React.Fragment>
-          <Grid item xs={12}>
-            <CountrySelector
-              onChange={props.handleChange}
-              value={props.country}
-              language={props.language}
-            />
-          </Grid>
-          <Grid item xs={12}>
-            <CurrencySelector
-              onChange={props.handleChange}
-              value={props.currency}
-              country={props.country}
-            />
-          </Grid>
+          <CountrySelector
+            onChange={props.handleChange}
+            value={props.country}
+            language={props.language}
+          />
+          <Address
+            onChange={props.handleChange}
+            cisty={props.city}
+            postCode={props.postCode}
+            addressLine1={props.addressLine1}
+            addressLine2={props.addressLine2}
+          />
         </React.Fragment>
       )
       break;
     case(2):
       return (
         <React.Fragment>
-          <Grid item xs={12}>
+            <CurrencySelector
+              onChange={props.handleChange}
+              value={props.currency}
+              country={props.country}
+            />
             <RecipientSelector 
               onChange={props.handleChange}
               value={props.recipientType}
               country={props.country}
               currency={props.currency}
             />
-          </Grid>
-          <Grid item xs={12}>
             <BankDetails
               recipientType={props.recipientType}
               onChange={props.handleBankDetailsChange}
               clearBankDetails={props.clearBankDetails}
               {...props.bankDetails}
             />
-          </Grid>
         </React.Fragment>
       )
       break;
     case(3):
       return (
         <React.Fragment>
-          <Grid item xs={12}>
             <Success
               loading={props.loading}
               error={props.error}
@@ -388,7 +389,6 @@ function Body(props){
               payload={props.payload}
               sendToTransferWise={props.sendToTransferWise}
             />
-          </Grid>
         </React.Fragment>
       )
       break;
@@ -413,7 +413,7 @@ function Footer(props){
               onClick={props.handleNext}
               color="primary"
             >
-            Next
+            <Translate text="Next"/>
             </Button>
       )
       break;
@@ -426,7 +426,7 @@ function Footer(props){
               onClick={props.handleBack}
               color="primary"
             >
-            Previous
+            <Translate text="Previous"/>
             </Button>
             <Button
               className={classes.button}
@@ -434,7 +434,7 @@ function Footer(props){
               onClick={props.handleNext}
               color="primary"
             >
-            Next
+            <Translate text="Next"/>
             </Button>
         </React.Fragment>
       )
@@ -448,7 +448,7 @@ function Footer(props){
             onClick={props.handleBack}
             color="primary"
           >
-          Previous
+          <Translate text="Previous"/>
           </Button>
           <Button
             className={classes.button}
@@ -456,7 +456,7 @@ function Footer(props){
             onClick={props.handleNext}
             color="primary"
           >
-          Validate
+          <Translate text="Validate"/>
           </Button>
         </React.Fragment>
       )
