@@ -148,13 +148,7 @@ export default class BankDeetsContainer extends React.Component {
   handleSubmit(event){
     event.preventDefault();
     this.setState({loading: true})
-    let submitURL = '';
-    if(this.state.home !== undefined){
-      submitURL = 'http://payspress.io/bank-details'
-    } else {
-      submitURL = this.props.submitURL
-    }
-    if(submitURL !== undefined){
+    if(this.props.submitURL !== undefined){
       fetch(this.props.submitURL, {
         mode: 'cors',
         method: 'POST',
@@ -202,19 +196,16 @@ export default class BankDeetsContainer extends React.Component {
     const payload = {
       currency: this.state.beneficiaryDetails.currency,
       type: this.state.beneficiaryDetails.bankDetailsType,
-      profile: 194,
       accountHolderName: accountHolderName,
       details: details
     }
 
-    const sanboxApiToken = '49026f93-83d8-4e07-8ec0-9e3153b17e1c'
     this.setState({loading: true})
-    fetch('https://api.sandbox.transferwise.tech/v1/accounts', {
+    fetch('http://payspresso.io/api/v1/validate-bank-details', {
       mode: 'cors',
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + sanboxApiToken
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify(payload)
     })

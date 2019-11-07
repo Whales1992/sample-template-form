@@ -88,7 +88,12 @@ const supported_countries = [
 'ARG',
 'ARE',
 'BRA',
-'CHL'
+'CHL',
+'THA',
+'GHA',
+'BGR',
+'KEN',
+'EGY'
 ]
 
 const useStyles = makeStyles(theme => ({
@@ -224,6 +229,11 @@ function ApiDocs(props){
               <li>Brazil</li>
               <li>Chile</li>
               <li>Argentina</li>
+              <li>Thailand</li>
+              <li>Ghana</li>
+              <li>Bulgaria</li>
+              <li>Kenya</li>
+              <li>Egypt</li>
             </ul> 
 
             Contribute to the list of supported currencies <a href="https://github.com/321k/bankdeets/blob/master/src/components/BankDetails.js">here</a> 
