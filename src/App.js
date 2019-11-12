@@ -12,6 +12,17 @@ import { makeStyles } from '@material-ui/core/styles';
 import { green } from '@material-ui/core/colors';
 import { ComposableMap, Geographies, Geography } from "react-simple-maps";
 
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+
+import ReactGA from 'react-ga';
+
+if (!window.location.href.includes('localhost')){
+  ReactGA.initialize('UA-42560882-4');
+  ReactGA.pageview('/');
+}
 
 const geoUrl = "https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json";
 const supported_countries = [
@@ -93,48 +104,30 @@ const supported_countries = [
 'GHA',
 'BGR',
 'KEN',
-'EGY'
+'EGY',
+'JPN',
+'IDN',
+'MEX'
 ]
 
 const useStyles = makeStyles(theme => ({
-  root: {
-    display: 'flex',
-    alignItems: 'center',
-  },
+
   paper: {
     marginTop: theme.spacing(3),
     width: '100%',
     overflowX: 'auto',
     padding: theme.spacing(3, 2),
-    display: 'flex',
     flexDirection: 'column'
   },
-  wrapper: {
-    margin: theme.spacing(1),
-    position: 'relative',
-  },
-  buttonSuccess: {
-    backgroundColor: green[500],
-    '&:hover': {
-      backgroundColor: green[700],
-    },
-  },
-  fabProgress: {
-    color: green[500],
-    position: 'absolute',
-    top: -6,
-    left: -6,
-    zIndex: 1,
-  },
-  buttonProgress: {
-    color: green[500],
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    marginTop: -12,
-    marginLeft: -12,
-  },
+  grid: {
+    alignContent: 'flex-start',
+    alignItems:  'flex-start',
+    textColor: 'red',
+    justify: 'flex-start'
+  }
 }));
+
+
 
 
 function App() {
@@ -187,74 +180,242 @@ function Map(props){
   )
 }
 function ApiDocs(props){
+  const classes = useStyles();
+
   return (
-    <Grid container 
-      direction="row"
-      justify="flex-start"
-      alignItems="flex-start"
-    >
-      <Grid item xs={12}>
+    <Grid container className={classes.grid} 
+    > 
+      <Grid item xs={12} className={classes.grid}>
         <h2>Installation</h2>
-            <ul>
-              <li>npm install bankdeets</li>
-            </ul>
-            <h2>Supported currencies</h2>
-            <ul>
-              <li>Eurozone</li>
-              <li>USD SWIFT</li>
-              <li>EUR SWIFT</li>
-              <li>GBP SWIFT</li>
-              <li>Bulgaria</li>
-              <li>Denmark</li>
-              <li>Norway</li>
-              <li>Sweden</li>
-              <li>UK</li>
-              <li>USA</li>
-              <li>Australia</li>
-              <li>Canada</li>
-              <li>Poland</li>
-              <li>Hungary</li>
-              <li>India</li>
-              <li>Singaproe</li>
-              <li>Hong Kong</li>
-              <li>New Zealand</li>
-              <li>Czechia</li>
-              <li>Bangladesh</li>
-              <li>Vietnam</li>
-              <li>Switzerland</li>
-              <li>Malaysia</li>
-              <li>Pakistan</li>
-              <li>Israel</li>
-              <li>Turkey</li>
-              <li>Brazil</li>
-              <li>Chile</li>
-              <li>Argentina</li>
-              <li>Thailand</li>
-              <li>Ghana</li>
-              <li>Bulgaria</li>
-              <li>Kenya</li>
-              <li>Egypt</li>
-            </ul> 
+        npm install bankdeets
+            <h2>Supported countries</h2>
+            <List>
+              <ListItem>
+                <ListItemIcon>🇪🇺</ListItemIcon>
+                <ListItemText>Eurozone</ListItemText>
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>🇺🇸</ListItemIcon>
+                <ListItemText>United States</ListItemText>
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>🇬🇧</ListItemIcon>
+                <ListItemText>United Kingdom</ListItemText>
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>🇧🇬</ListItemIcon>
+                <ListItemText>Bulgaria</ListItemText>
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>🇩🇰</ListItemIcon>
+                <ListItemText>Denmark</ListItemText>
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>🇳🇴</ListItemIcon>
+                <ListItemText>Norway</ListItemText>
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>🇸🇪</ListItemIcon>
+                <ListItemText>Sweden</ListItemText>
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>🇦🇹</ListItemIcon>
+                <ListItemText>Austria</ListItemText>
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>🇧🇪</ListItemIcon>
+                <ListItemText>Belgium</ListItemText>
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>🇨🇾</ListItemIcon>
+                <ListItemText>Cyprus</ListItemText>
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>🇪🇪</ListItemIcon>
+                <ListItemText>Estonia</ListItemText>
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>🇫🇮</ListItemIcon>
+                <ListItemText>Finland</ListItemText>
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>🇫🇷</ListItemIcon>
+                <ListItemText>France</ListItemText>
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>🇩🇪</ListItemIcon>
+                <ListItemText>Germany</ListItemText>
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>🇬🇷</ListItemIcon>
+                <ListItemText>Greece</ListItemText>
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>🇮🇪</ListItemIcon>
+                <ListItemText>Ireland</ListItemText>
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>🇮🇹</ListItemIcon>
+                <ListItemText>Italy</ListItemText>
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>🇱🇻</ListItemIcon>
+                <ListItemText>Latvia</ListItemText>
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>🇱🇹</ListItemIcon>
+                <ListItemText>Lithuania</ListItemText>
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>🇱🇺</ListItemIcon>
+                <ListItemText>Luxembourg</ListItemText>
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>🇲🇹</ListItemIcon>
+                <ListItemText>Malta</ListItemText>
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>🇳🇱</ListItemIcon>
+                <ListItemText>Netherlands</ListItemText>
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>🇵🇹</ListItemIcon>
+                <ListItemText>Portugal</ListItemText>
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>🇸🇰</ListItemIcon>
+                <ListItemText>Slovakia</ListItemText>
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>🇸🇮</ListItemIcon>
+                <ListItemText>Slovenia</ListItemText>
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>🇪🇸</ListItemIcon>
+                <ListItemText>Spain</ListItemText>
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>🇦🇺</ListItemIcon>
+                <ListItemText>Australia</ListItemText>
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>🇨🇦</ListItemIcon>
+                <ListItemText>Canada</ListItemText>
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>🇵🇱</ListItemIcon>
+                <ListItemText>Poland</ListItemText>
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>🇭🇺</ListItemIcon>
+                <ListItemText>Hungary</ListItemText>
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>🇮🇳</ListItemIcon>
+                <ListItemText>India</ListItemText>
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>🇸🇬</ListItemIcon>
+                <ListItemText>Singaproe</ListItemText>
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>🇭🇰</ListItemIcon>
+                <ListItemText>Hong Kong</ListItemText>
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>🇳🇿</ListItemIcon>
+                <ListItemText>New Zealand</ListItemText>
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>🇨🇿</ListItemIcon>
+                <ListItemText>Czechia</ListItemText>
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>🇧🇩</ListItemIcon>
+                <ListItemText>Bangladesh</ListItemText>
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>🇻🇳</ListItemIcon>
+                <ListItemText>Vietnam</ListItemText>
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>🇨🇭</ListItemIcon>
+                <ListItemText>Switzerland</ListItemText>
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>🇲🇾</ListItemIcon>
+                <ListItemText>Malaysia</ListItemText>
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>🇵🇰</ListItemIcon>
+                <ListItemText>Pakistan</ListItemText>
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>🇮🇱</ListItemIcon>
+                <ListItemText>Israel</ListItemText>
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>🇹🇷</ListItemIcon>
+                <ListItemText>Turkey</ListItemText>
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>🇧🇷</ListItemIcon>
+                <ListItemText>Brazil</ListItemText>
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>🇨🇱</ListItemIcon>
+                <ListItemText>Chile</ListItemText>
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>🇦🇷</ListItemIcon>
+                <ListItemText>Argentina</ListItemText>
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>🇹🇭</ListItemIcon>
+                <ListItemText>Thailand</ListItemText>
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>🇬🇭</ListItemIcon>
+                <ListItemText>Ghana</ListItemText>
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>🇧🇬</ListItemIcon>
+                <ListItemText>Bulgaria</ListItemText>
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>🇰🇪</ListItemIcon>
+                <ListItemText>Kenya</ListItemText>
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>🇪🇬</ListItemIcon>
+                <ListItemText>Egypt</ListItemText>
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>🇯🇵</ListItemIcon>
+                <ListItemText>Japan</ListItemText>
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>🇮🇩</ListItemIcon>
+                <ListItemText>Indonesia</ListItemText>
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>🇲🇽</ListItemIcon>
+                <ListItemText>Mexico</ListItemText>
+              </ListItem>
+            </List> 
 
             Contribute to the list of supported currencies <a href="https://github.com/321k/bankdeets/blob/master/src/components/BankDetails.js">here</a> 
         </Grid>
-      <Grid item xs={12}>
-          <h2>API</h2>
-          <ul>
-            <li><b>submitURL</b>="where to post the form data to"</li>
-            <li>Example: {'<BankDeets submitURL="bankdeets.co/bankdeets" />'}</li>
-          </ul>
-      </Grid>
       <Grid item xs={12}>        
         <h2>Supported languages</h2>  
-          <ul>
-            <li>English</li>
-            <li>Swedish</li>
-            <li>Norwegian</li>
-            <li>Danish</li>
-            <li>Finnish</li>
-            <li>French</li>
-          </ul>
+          <List>
+            <ListItem>English</ListItem>
+            <ListItem>Swedish</ListItem>
+            <ListItem>Norwegian</ListItem>
+            <ListItem>Danish</ListItem>
+            <ListItem>Finnish</ListItem>
+            <ListItem>French</ListItem>
+          </List>
         Contribute to translations <a href="https://github.com/321k/bankdeets/blob/master/src/translation.js">here</a>
       </Grid>
     </Grid>

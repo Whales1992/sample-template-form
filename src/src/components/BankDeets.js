@@ -174,7 +174,6 @@ export default class BankDeetsContainer extends React.Component {
         }
       )
       .then(res => res.json)
-      .then(this.delayState())
     } else {
       const payload = {...this.state}
       this.delayState()
