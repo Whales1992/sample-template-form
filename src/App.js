@@ -107,7 +107,14 @@ const supported_countries = [
 'EGY',
 'JPN',
 'IDN',
-'MEX'
+'MEX',
+'PHL',
+'PER',
+'GEO',
+'NPL',
+'NER',
+'MAR',
+'LKA'
 ]
 
 const useStyles = makeStyles(theme => ({
@@ -128,8 +135,6 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-
-
 function App() {
   const classes = useStyles();
 
@@ -141,7 +146,7 @@ function App() {
             <CssBaseline />
             <Introduction />
             <Paper className={classes.paper}>
-              <BankDeets submitURL="http://payspresso.io/api/v1/bank-details" />
+              <BankDeets/>
             </Paper>
             <ApiDocs/>
           </Container>
@@ -401,6 +406,34 @@ function ApiDocs(props){
               <ListItem>
                 <ListItemIcon>🇲🇽</ListItemIcon>
                 <ListItemText>Mexico</ListItemText>
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>🇵🇪</ListItemIcon>
+                <ListItemText>Peru</ListItemText>
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>🇲🇦</ListItemIcon>
+                <ListItemText>Morocco</ListItemText>
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>🇵🇭</ListItemIcon>
+                <ListItemText>Philippines</ListItemText>
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>🇬🇪</ListItemIcon>
+                <ListItemText>Georgia</ListItemText>
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>🇳🇵</ListItemIcon>
+                <ListItemText>Nepal</ListItemText>
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>🇳🇬</ListItemIcon>
+                <ListItemText>Nigeria</ListItemText>
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>🇱🇰</ListItemIcon>
+                <ListItemText>Sri Lanka</ListItemText>
               </ListItem>
             </List> 
 

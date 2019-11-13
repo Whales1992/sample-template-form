@@ -1,6 +1,5 @@
 import React from "react";
-// import BankDeets from './components/BankDeets.js'
-import BankDeets from 'bankdeets'
+import BankDeets from './components/BankDeets.js'
 import LanguageSelector from './components/LanguageSelector.js'
 import Grid from '@material-ui/core/Grid';
 import CountrySelector from './components/CountrySelector.js'
