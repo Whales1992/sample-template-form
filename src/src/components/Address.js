@@ -1,26 +1,9 @@
 import React from 'react';
 import { Translate } from 'react-translated';
 import TextField from '@material-ui/core/TextField';
-import { makeStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
 import FormControl from '@material-ui/core/FormControl';
-
-const useStyles = makeStyles(theme => ({
-  container: {
-    display: 'flex',
-    flexWrap: 'wrap',
-  },
-  textField: {
-    marginLeft: theme.spacing(1),
-    marginRight: theme.spacing(1)
-  },
-  formControl: {
-    margin: theme.spacing(1),
-    minWidth: 200,
-    width: `80%`,
-  },
-}));
-
+import useStyles from '../styles.js'
+import PropTypes from 'prop-types';
 
 
 export default function Address (props){
@@ -43,7 +26,7 @@ export default function Address (props){
           id="postCode"
           label={<Translate text='Post code'/>}
           className={classes.textField}
-          value={props.city}
+          value={props.postCode}
           onChange={props.onChange} 
           margin="normal"
         />
@@ -53,7 +36,7 @@ export default function Address (props){
           id="addressLine"
           label={<Translate text='Address'/>}
           className={classes.textField}
-          value={props.city}
+          value={props.addressLine}
           onChange={props.onChange} 
           margin="normal"
         />
@@ -61,3 +44,9 @@ export default function Address (props){
     </React.Fragment>
   )
 }
+
+Address.propTypes = {
+  city: PropTypes.string,
+  postCode: PropTypes.string,
+  addressLine: PropTypes.string
+};

@@ -1,371 +1,10 @@
 import React from "react";
 import { Translate } from 'react-translated';
 import NativeSelect from '@material-ui/core/NativeSelect';
-import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
-import Grid from '@material-ui/core/Grid';
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
-
-
-const useStyles = makeStyles(theme => ({
-  container: {
-    display: 'flex',
-    flexWrap: 'wrap',
-  },
-  formControl: {
-    margin: theme.spacing(1),
-    minWidth: 200,
-    width: `80%`,
-  },
-  formInput: {
-    padding: theme.spacing(1),
-    minWidth: 200,
-    width: `100%`,
-  },
-}));
-
-
-const sanboxApiToken = '157bca0a-e206-4593-af98-eb816d6eca11'
-
-export default class BankDetailsContainer extends React.Component{
-    constructor(props){
-        super(props);
-    }
-
-    componentDidUpdate(prevProps){
-      if(prevProps.bankDetailsType !== this.props.bankDetailsType){
-        this.props.clearBankDetails()
-      }
-    }
-
-    render(){
-        return (
-          <BankDetailsStyling {...this.props} />
-        );
-    }
-}
-
-function BankDetailsStyling(props){
-  const classes = useStyles()
-  return (
-    <form>
-      <BankDetails {...props}/>
-    </form>
-  )
-}
-
-function BankDetails(props){
-  switch(props.bankDetailsType){
-    case 'IBAN':
-        return (
-          <IbanRecipient 
-            iban={props.iban} 
-            onChange={props.onChange}
-          />
-        );
-        break;
-    case 'SWIFT_CODE':
-        return (
-          <SwiftRecipient 
-            iban={props.iban} 
-             swift_code={props.swift_code}
-             onChange={props.onChange}
-          />
-        );
-        break;
-    case 'SORT_CODE':
-        return (
-          <SortCodeRecipient 
-            sortCode={props.sortCode} 
-            accountNumber={props.accountNumber}
-            onChange={props.onChange}
-          />
-        );
-        break;
-    case 'SWEDEN_LOCAL':
-        return (
-          <SwedishLocalRecipient 
-            clearingNumber={props.clearingNumber} 
-            accountNumber={props.accountNumber}
-            onChange={props.onChange}
-          />
-        );
-        break;
-    case 'ABA':
-        return (
-          <AbaRecipient 
-            accountType={props.accountType} 
-            abartn={props.abartn}
-            accountNumber={props.accountNumber}
-            onChange={props.onChange}
-          />
-        );
-        break;
-    case 'AUSTRALIAN':
-        return (
-          <AustralianLocalRecipient 
-            bsbCode={props.bsbCode} 
-            accountNumber={props.accountNumber}
-            onChange={props.onChange}
-          />
-        );
-        break;
-    case 'AUSTRALIAN_BUSINESS':
-        return (
-          <AustralianBusinessRecipient 
-            bsbCode={props.bsbCode} 
-            accountNumber={props.accountNumber}
-            businessNumber={props.businessNumber}
-            onChange={props.onChange}
-          />
-        );
-        break;
-    case 'CANADIAN':
-        return (
-          <CanadianRecipient 
-            institutionNumber={props.institutionNumber} 
-            transitNumber={props.transitNumber}
-            accountNumber={props.accountNumber}
-            accountType={props.accountType}
-            onChange={props.onChange}
-          />
-        );
-        break;
-    case 'POLISH':
-        return (
-          <PolishLocalRecipient 
-            accountNumber={props.accountNumber} 
-            bic={props.bic}
-            onChange={props.onChange}
-          />
-        );
-        break;
-    case 'HUNGARIAN':
-        return (
-          <HungarianLocalRecipient 
-            accountNumber={props.accountNumber} 
-            onChange={props.onChange}
-          />
-        );
-        break;
-    case 'INDIAN':
-        return (
-          <IndianRecipient 
-            ifscCode={props.ifscCode} 
-            accountNumber={props.accountNumber}
-            onChange={props.onChange}
-          />
-        );
-        break;
-    case 'SINGAPORE':
-        return (
-          <SingaporeanRecipient 
-            accountNumber={props.accountNumber} 
-            bankCode={props.bankCode}
-            onChange={props.onChange}
-          />
-        );
-        break;
-    case 'HONGKONG':
-        return (
-          <HongkongRecipient 
-            accountNumber={props.accountNumber} 
-            bankCode={props.bankCode}
-            onChange={props.onChange}
-          />
-        );
-        break;
-    case 'NEWZEALAND':
-        return (
-          <NewzealandRecipient 
-            accountNumber={props.accountNumber} 
-            onChange={props.onChange}
-          />
-        );
-        break;
-    case 'CZECH':
-        return (
-          <CzechLocalRecipient 
-            accountNumber={props.accountNumber} 
-            bankCode={props.bankCode}
-            onChange={props.onChange}
-          />
-        );
-        break;
-    case 'BANGLADESH':
-        return (
-          <BangladeshRecipient 
-            accountNumber={props.accountNumber} 
-            bankCode={props.bankCode} branchCode={props.branchCode}
-            onChange={props.onChange} 
-          />
-        );
-        break;
-    case 'CHINESE_CARD':
-        return (
-          <ChineseCardRecipient 
-            cardNumber={props.cardNumber} 
-            onChange={props.onChange}
-          />
-        );
-        break;
-    case 'VIETNAME_EARTHPORT':
-        return (
-          <VietnamEarthportRecipient 
-            accountNumber={props.accountNumber} 
-            bankCode={props.bankCode} branchCode={props.branchCode}
-            onChange={props.onChange}
-          />
-        );
-        break;
-    case 'SWISS':
-        return (
-          <SwissLocalRecipient 
-            accountNumber={props.accountNumber} 
-            branchCode={props.branchCode}
-            onChange={props.onChange}
-          />
-        );
-        break;
-    case 'MALAYSIAN':
-        return (
-          <MalaysianLocalRecipient 
-            accountNumber={props.accountNumber} 
-            bankCode={props.bankCode}
-            onChange={props.onChange}
-          />
-        );
-        break;
-    case 'ISRAELI_LOCAL':
-        return (
-          <IbanRecipient 
-            iban={props.iban} 
-            onChange={props.onChange}
-          />
-        );
-        break;
-    case 'TURKISH_EARTHPORT':
-        return (
-          <IbanRecipient 
-            iban={props.iban} 
-            onChange={props.onChange}
-          />
-        );
-        break;
-    case 'EMIRATES':
-        return (
-          <IbanRecipient 
-            iban={props.iban} 
-            onChange={props.onChange}
-          />
-        );
-        break;
-    case 'ARGENTINA':
-        return (
-          <ArgentinaRecipient 
-            accountNumber={props.accountNumber} 
-            taxId={props.taxId}
-            onChange={props.onChange}
-          />
-        );
-        break;
-    case 'BRAZIL':
-        return (
-          <BrazilRecipient 
-            accountNumber={props.accountNumber} 
-            cpf={props.cpf}
-            accountType={props.accountType}
-            bankCode={props.bankCode}
-            branchCode={props.branchCode}
-            onChange={props.onChange}
-          />
-        );
-        break;
-    case 'CHILE':
-        return (
-          <ChileRecipient 
-            accountNumber={props.accountNumber} 
-            rut={props.rut}
-            accountType={props.accountType}
-            bankCode={props.bankCode}
-            branchCode={props.branchCode}
-            onChange={props.onChange}
-          />
-        );
-        break;
-    case 'THAILAND':
-        return (
-          <ThailandRecipient 
-            accountNumber={props.accountNumber} 
-            bankCode={props.bankCode}
-            onChange={props.onChange}
-          />
-        );
-    case 'EGYPT_LOCAL':
-        return (
-          <EgyptLocalRecipient 
-            accountNumber={props.accountNumber} 
-            bankCode={props.bankCode}
-            onChange={props.onChange}
-          />
-        );
-    case 'BULGARIA':
-        return (
-          <IbanRecipient 
-            iban={props.iban} 
-            onChange={props.onChange}
-          />
-        );
-    case 'GHANA_LOCAL':
-        return (
-          <GhanaLocalRecipient 
-            accountNumber={props.accountNumber} 
-            bankCode={props.bankCode}
-            onChange={props.onChange}
-          />
-        );
-    case 'KENYA_LOCAL':
-        return (
-          <KenyaLocalRecipient 
-            accountNumber={props.accountNumber} 
-            bankCode={props.bankCode}
-            onChange={props.onChange}
-          />
-        );
-    case 'MEXICAN':
-        return (
-          <MexicanRecipient 
-            clabe={props.clabe} 
-            onChange={props.onChange}
-          />
-        );
-    case 'INDONESIAN':
-        return (
-          <IndonesianRecipient 
-            bankCode={props.bankCode} 
-            accountNumber={props.accountNumber}
-            onChange={props.onChange}
-          />
-        );
-    case 'JAPANESE':
-        return (
-          <JapaneseRecipient 
-            accountNumber={props.accountNumber} 
-            accountType={props.accountType}
-            bankCode={props.bankCode}
-            branchCode={props.branchCode}
-            onChange={props.onChange}
-          />
-        );
-    default:  
-        return (
-          <NotAvaialableRecipient 
-             onChange={props.onChange}
-          />
-        );
-  }
-}
+import useStyles from '../styles.js'
 
 class GetBankCode extends React.Component{
   constructor(props){
@@ -499,122 +138,6 @@ function FormInput (props) {
 }
 
 
-export class OldDynamicDropdown extends React.Component{
-    constructor(props){
-        super(props)
-        this.state = {
-            error: null,
-            isLoaded: false,
-            items: []
-        };
-
-    }
-
-    componentDidMount(){
-        fetch(this.props.url)
-        .then(res => res.json())
-        .then(
-            (result) => {
-                this.setState({
-                    isLoaded: true,
-                    items: result,
-                });
-
-                // Initialize the value of the dropdown
-                if (result.length !== 0){
-                    const name = this.props.name
-                    const defaultValue = {[name]: result[0].key}
-                    this.props.default(defaultValue);
-                }
-            },
-            (error) => {
-                this.setState({
-                    isLoaded: true,
-                    error: error
-                })
-            }
-        )
-    }
-
-    componentDidUpdate(prevProps) {
-        if (this.props.depends_on !== prevProps.depends_on) {
-            fetch(this.props.url)
-            .then(res => res.json())
-            .then(
-                (result) => {
-                    this.setState({
-                        isLoaded: true,
-                        items: result
-                    });
-
-                    // Update the value of the dropdown
-                    if (result.length !== 0){
-                        const name = this.props.name
-                        const defaultValue = {[name]: result[0].key}
-                        this.props.default(defaultValue);
-                    }
-                },
-                (error) => {
-                    this.setState({
-                        isLoaded: true,
-                        error: error
-                    })
-                    console.log(error);
-                }
-            )
-        }
-    }
-
-    render() {
-        const { error, isLoaded, items } = this.state;
-        if (error) {
-            return (
-                <TextField
-                  id={this.props.id}
-                  label={this.props.description}
-                  value={this.props.value}
-                  onChange={this.props.onChange} 
-                  margin="normal"
-                />
-                
-            )
-        } else if (!isLoaded){
-            return <div>Loading...</div>
-        } else if (items.length>=1) {
-            return (
-              <div>
-                <FormDropdown
-                  description={this.props.description}
-                  name={this.props.description}
-                  items={this.props.items}
-                  value={this.props.value}
-                />
-              </div>
-            );
-        } else if (items.length === 1) {
-            return (
-              <div>
-                <label htmlFor={this.props.id}>{this.props.name}</label>
-                <input 
-                    disabled
-                    value={this.props.value}
-                    onChange={this.props.onChange}
-                    className="form-control" 
-                    name={this.props.name}
-                    id={this.props.id}
-                />
-             </div>
-            ) 
-        } else {
-            return (
-                <div className="form-group">
-                    No values found
-                </div>
-                )
-        }
-    }
-}
-
 class FormDropdown extends React.Component {
 
   componentDidMount(){
@@ -640,19 +163,22 @@ class FormDropdown extends React.Component {
 }
 
 
-function IbanRecipient (props){
+export function IbanRecipient (props){
+  const classes = useStyles();
   const iban = props.iban ? props.iban : ''
   return(
+    <FormControl className={classes.formControl}>
       <FormInput
           name="iban" value={iban} 
           description="IBAN" 
           onChange={props.onChange} 
 
       />
+    </FormControl>
   );
 }
 
-function SwiftRecipient (props){
+export function SwiftRecipient (props){
   const classes = useStyles();
   const iban = props.iban ? props.iban : ''
   const swift_code = props.swift_code ? props.swift_code : ''
@@ -677,7 +203,7 @@ function SwiftRecipient (props){
   );
 }
 
-function SortCodeRecipient (props){
+export function SortCodeRecipient (props){
   const classes = useStyles();
   const sortCode = props.sortCode ? props.sortCode : '';
   const accountNumber = props.accountNumber ? props.accountNumber : '';
@@ -705,7 +231,7 @@ function SortCodeRecipient (props){
   );
 }
 
-function SwedishLocalRecipient (props){
+export function SwedishLocalRecipient (props){
   const classes = useStyles();
   const clearingNumber = props.clearingNumber ? props.clearingNumber : '';
   const accountNumber = props.accountNumber ? props.accountNumber : '';
@@ -733,7 +259,7 @@ function SwedishLocalRecipient (props){
   );
 }
 
-function AbaRecipient (props){
+export function AbaRecipient (props){
   const classes = useStyles();
   const abartn = props.abartn ? props.abartn : ''
   const accountNumber = props.accountNumber ? props.accountNumber : ''
@@ -774,7 +300,7 @@ function AbaRecipient (props){
   );
 }
 
-function AustralianLocalRecipient (props){
+export function AustralianLocalRecipient (props){
   const classes = useStyles();
   const bsbCode = props.abartn ? props.abartn : ''
   const accountNumber = props.accountNumber ? props.accountNumber : ''
@@ -790,7 +316,7 @@ function AustralianLocalRecipient (props){
   );
 }
 
-function AustralianBusinessRecipient (props){
+export function AustralianBusinessRecipient (props){
   const classes = useStyles();
   const bsbCode = props.abartn ? props.abartn : '';
   const accountNumber = props.accountNumber ? props.accountNumber : '';
@@ -811,7 +337,7 @@ function AustralianBusinessRecipient (props){
   );
 }
 
-function CanadianRecipient (props){
+export function CanadianRecipient (props){
   const classes = useStyles();
   const institutionNumber = props.institutionNumber ? props.institutionNumber : '';
   const transitNumber = props.transitNumber ? props.transitNumber : '';
@@ -857,7 +383,7 @@ function CanadianRecipient (props){
   );
 }
 
-function PolishLocalRecipient (props){
+export function PolishLocalRecipient (props){
   const classes = useStyles();  const accountNumber = props.accountNumber ? props.accountNumber : '';
   const bic = props.bic ? props.bic : '';
   return(
@@ -868,7 +394,7 @@ function PolishLocalRecipient (props){
   );
 }
 
-function HungarianLocalRecipient (props){
+export function HungarianLocalRecipient (props){
   const classes = useStyles();
   const accountNumber = props.accountNumber ? props.accountNumber : '';
   return(
@@ -883,7 +409,7 @@ function HungarianLocalRecipient (props){
   );
 }
 
-function IndianRecipient (props){
+export function IndianRecipient (props){
   const classes = useStyles();
   const ifscCode = props.ifscCode ? props.ifscCode : '';
   const accountNumber = props.accountNumber ? props.accountNumber : '';
@@ -903,7 +429,7 @@ function IndianRecipient (props){
   );
 }
 
-function SingaporeanRecipient (props){
+export function SingaporeanRecipient (props){
   const classes = useStyles();
   const accountNumber = props.accountNumber ? props.accountNumber : '';
   const bankCode = props.bankCode ? props.bankCode : '';
@@ -915,7 +441,7 @@ function SingaporeanRecipient (props){
   );
 }
 
-function HongkongRecipient (props){
+export function HongkongRecipient (props){
   const classes = useStyles();
   const accountNumber = props.accountNumber ? props.accountNumber : '';
   const bankCode = props.bankCode ? props.bankCode : '';
@@ -931,7 +457,7 @@ function HongkongRecipient (props){
   );
 }
 
-function NewzealandRecipient (props) {
+export function NewzealandRecipient (props) {
   const classes = useStyles();
   const accountNumber = props.accountNumber ? props.accountNumber : '';
   return(
@@ -944,7 +470,7 @@ function NewzealandRecipient (props) {
   );
 }
 
-function CzechLocalRecipient (props){
+export function CzechLocalRecipient (props){
   const classes = useStyles();
   const accountNumber = props.accountNumber ? props.accountNumber : '';
   const bankCode = props.bankCode ? props.bankCode : '';
@@ -956,8 +482,9 @@ function CzechLocalRecipient (props){
   );
 }
 
-function BangladeshRecipient (props){
+export function BangladeshRecipient (props){
   const classes = useStyles();
+  const accountNumber = props.accountNumber ? props.accountNumber : '';
   const bankCode = props.bankCode ? props.bankCode : '';
   const branchCode = props.branchCode ? props.branchCode : '';
 
@@ -995,7 +522,7 @@ function BangladeshRecipient (props){
   );
 }
 
-function ChineseCardRecipient (props){
+export function ChineseCardRecipient (props){
   const classes = useStyles();
   const cardNumber = props.cardNumber ? props.cardNumber : '';
   return(
@@ -1005,7 +532,7 @@ function ChineseCardRecipient (props){
   );
 }
 
-function VietnamEarthportRecipient (props){
+export function VietnamEarthportRecipient (props){
   const classes = useStyles();
   const accountNumber = props.accountNumber ? props.accountNumber : '';
   const bankCode = props.bankCode ? props.bankCode : '';
@@ -1044,7 +571,7 @@ function VietnamEarthportRecipient (props){
   );
 }
 
-function SwissLocalRecipient (props){
+export function SwissLocalRecipient (props){
   const classes = useStyles();
   const accountNumber = props.accountNumber ? props.accountNumber : '';
   const branchCode = props.branchCode ? props.branchCode : '';
@@ -1070,7 +597,7 @@ function SwissLocalRecipient (props){
   );
 }
 
-function MalaysianLocalRecipient (props){
+export function MalaysianLocalRecipient (props){
   const classes = useStyles();
   const accountNumber = props.accountNumber ? props.accountNumber : '';
   const bankCode = props.bankCode ? props.bankCode : '';
@@ -1098,7 +625,7 @@ function MalaysianLocalRecipient (props){
   );
 }
 
-function ArgentinaRecipient (props){
+export function ArgentinaRecipient (props){
   const classes = useStyles();
   const accountNumber = props.accountNumber ? props.accountNumber : '';
   const taxId = props.taxId ? props.taxId : '';
@@ -1115,7 +642,7 @@ function ArgentinaRecipient (props){
   );
 }
 
-function BrazilRecipient (props){
+export function BrazilRecipient (props){
   const classes = useStyles();
   const accountNumber = props.accountNumber ? props.accountNumber : '';
   const bankCode = props.bankCode ? props.bankCode : '';
@@ -1163,7 +690,7 @@ function BrazilRecipient (props){
   );
 }
 
-function ChileRecipient (props){
+export function ChileRecipient (props){
   const classes = useStyles();
   const accountNumber = props.accountNumber ? props.accountNumber : '';
   const bankCode = props.bankCode ? props.bankCode : '';
@@ -1221,7 +748,7 @@ function ChileRecipient (props){
   );
 }
 
-function ThailandRecipient (props){
+export function ThailandRecipient (props){
   const classes = useStyles();
   const accountNumber = props.accountNumber ? props.accountNumber : '';
   const bankCode = props.bankCode ? props.bankCode : '';
@@ -1249,7 +776,7 @@ function ThailandRecipient (props){
   );
 }
 
-function EgyptLocalRecipient (props){
+export function EgyptLocalRecipient (props){
   const classes = useStyles();
   const accountNumber = props.accountNumber ? props.accountNumber : '';
   const bankCode = props.bankCode ? props.bankCode : '';
@@ -1277,7 +804,7 @@ function EgyptLocalRecipient (props){
   );
 }
 
-function GhanaLocalRecipient (props){
+export function GhanaLocalRecipient (props){
   const classes = useStyles();
   const accountNumber = props.accountNumber ? props.accountNumber : '';
   const bankCode = props.bankCode ? props.bankCode : '';
@@ -1305,7 +832,7 @@ function GhanaLocalRecipient (props){
   );
 }
 
-function KenyaLocalRecipient (props){
+export function KenyaLocalRecipient (props){
   const classes = useStyles();
   const accountNumber = props.accountNumber ? props.accountNumber : '';
   const bankCode = props.bankCode ? props.bankCode : '';
@@ -1333,7 +860,7 @@ function KenyaLocalRecipient (props){
   );
 }
 
-function MexicanRecipient (props){
+export function MexicanRecipient (props){
   const classes = useStyles();
   const clabe = props.clabe ? props.clabe : '';
   
@@ -1351,7 +878,7 @@ function MexicanRecipient (props){
   );
 }
 
-function IndonesianRecipient (props){
+export function IndonesianRecipient (props){
   const classes = useStyles();
   const accountNumber = props.accountNumber ? props.accountNumber : '';
   const bankCode = props.bankCode ? props.bankCode : '';
@@ -1379,7 +906,7 @@ function IndonesianRecipient (props){
   );
 }
 
-function JapaneseRecipient (props){
+export function JapaneseRecipient (props){
   const classes = useStyles();
   const accountNumber = props.accountNumber ? props.accountNumber : '';
   const bankCode = props.bankCode ? props.bankCode : '';
@@ -1423,7 +950,306 @@ function JapaneseRecipient (props){
   );
 }
 
-function NotAvaialableRecipient(props){
+
+export function SriLankaRecipient (props){
+  const classes = useStyles();
+  const accountNumber = props.accountNumber ? props.accountNumber : '';
+  const bankCode = props.bankCode ? props.bankCode : '';
+  const branchCode = props.branchCode ? props.branchCode : '';
+  
+  return(
+      <React.Fragment>
+        <FormControl className={classes.formControl}>
+          <FormInput name="accountNumber" value={accountNumber} description={<Translate text="Account number"/>} onChange={props.onChange}  />
+        </FormControl>
+        <FormControl className={classes.formControl}>
+          <GetBankCode
+            country="JP"
+            name="bankCode"
+            onChange={props.onChange}
+            value={bankCode}
+            description={<Translate text="Bank code"/>}
+          />
+        </FormControl>
+        <FormControl className={classes.formControl}>
+          <GetBranchCode
+            country="JP"
+            name="branchCode"
+            onChange={props.onChange}
+            value={branchCode}
+            bankCode={bankCode}
+            description={<Translate text="Branch code"/>}
+          />
+        </FormControl>
+      </React.Fragment>
+  );
+}
+
+
+export function MoroccoRecipient (props){
+  const classes = useStyles();
+  const accountNumber = props.accountNumber ? props.accountNumber : '';
+  const bankCode = props.bankCode ? props.bankCode : '';
+  
+  return(
+    <React.Fragment>
+      <FormControl className={classes.formControl}>
+        <FormInput
+          name="accountNumber"
+          value={accountNumber}
+          description={<Translate text="Account number"/>}
+          onChange={props.onChange} 
+        />
+      </FormControl>
+      <FormControl className={classes.formControl}>
+        <GetBankCode
+          country="MA"
+          name="bankCode"
+          description={<Translate text="Bank code"/>}
+          onChange={props.onChange}
+          value={bankCode}
+        />
+      </FormControl>
+    </React.Fragment>
+  );
+}
+
+
+export function NigeriaRecipient (props){
+  const classes = useStyles();
+  const accountNumber = props.accountNumber ? props.accountNumber : '';
+  const bankCode = props.bankCode ? props.bankCode : '';
+  
+  return(
+    <React.Fragment>
+      <FormControl className={classes.formControl}>
+        <FormInput
+          name="accountNumber"
+          value={accountNumber}
+          description={<Translate text="Account number"/>}
+          onChange={props.onChange} 
+        />
+      </FormControl>
+      <FormControl className={classes.formControl}>
+        <GetBankCode
+          country="NG"
+          name="bankCode"
+          description={<Translate text="Bank code"/>}
+          onChange={props.onChange}
+          value={bankCode}
+        />
+      </FormControl>
+    </React.Fragment>
+  );
+}
+
+export function NepalRecipient (props){
+  const classes = useStyles();
+  const accountNumber = props.accountNumber ? props.accountNumber : '';
+  const bankCode = props.bankCode ? props.bankCode : '';
+  
+  return(
+    <React.Fragment>
+      <FormControl className={classes.formControl}>
+        <FormInput
+          name="accountNumber"
+          value={accountNumber}
+          description={<Translate text="Account number"/>}
+          onChange={props.onChange} 
+        />
+      </FormControl>
+      <FormControl className={classes.formControl}>
+        <GetBankCode
+          country="NP"
+          name="bankCode"
+          description={<Translate text="Bank code"/>}
+          onChange={props.onChange}
+          value={bankCode}
+        />
+      </FormControl>
+    </React.Fragment>
+  );
+}
+
+
+
+export function PeruRecipient (props){
+  const classes = useStyles();
+  const accountNumber = props.accountNumber ? props.accountNumber : '';
+  const bankCode = props.bankCode ? props.bankCode : '';
+  const accountType = props.accountType ? props.accountType : '';
+  const idDocumentType = props.idDocumentType ? idDocumentType : '';
+  const idDocumentNumber = props.idDocumentNumber ? idDocumentNumber : '';
+  const phoneNumber = props.phoneNumber ? phoneNumber : '';
+  
+  return(
+    <React.Fragment>
+      <FormControl className={classes.formControl}>
+        <FormInput
+          name="accountNumber"
+          value={accountNumber}
+          description={<Translate text="Account number"/>}
+          onChange={props.onChange} 
+        />
+      </FormControl>
+      <FormControl className={classes.formControl}>
+        <GetBankCode
+          country="PE"
+          name="bankCode"
+          description={<Translate text="Bank code"/>}
+          onChange={props.onChange}
+          value={bankCode}
+        />
+      </FormControl>
+      <FormControl className={classes.formControl}>
+        <FormDropdown 
+          name="accountType"
+          value={accountType}
+          description="Account type"
+          onChange={props.onChange}
+          items={[{'key': 'CHECKING', 'value': 'Checking account'}, {'key': 'SAVINGS', 'value': 'Savings account'}]} 
+        />
+      </FormControl>
+      <FormControl className={classes.formControl}>
+        <FormDropdown 
+          name="idDocumentType"
+          value={idDocumentType}
+          description={<Translate text="ID document type"/>}
+          onChange={props.onChange}
+          items={[
+            {'key': 'DNI', 'value': 'National Identity Document'},
+            {'key': 'RUC', 'value': 'Tax ID number (RUC)'},
+            {'key': 'C_EXT', 'value': 'Carnet de Extranjería'},
+            {'key': 'PASSP', 'value': 'Passport'}
+          ]} 
+        />
+      </FormControl>
+      <FormControl className={classes.formControl}>
+        <FormInput
+          name="idDocumentNumber"
+          value={idDocumentNumber}
+          description={<Translate text="ID document number"/>}
+          onChange={props.onChange} 
+        />
+      </FormControl>
+      <FormControl className={classes.formControl}>
+        <FormInput
+          name="phoneNumber"
+          value={phoneNumber}
+          description={<Translate text="Phone number"/>}
+          onChange={props.onChange} 
+        />
+      </FormControl>
+    </React.Fragment>
+  );
+}
+
+
+export function PhilippinesRecipient (props){
+  const classes = useStyles();
+  const accountNumber = props.accountNumber ? props.accountNumber : '';
+  const bankCode = props.bankCode ? props.bankCode : '';
+  
+  return(
+    <React.Fragment>
+      <FormControl className={classes.formControl}>
+        <FormInput
+          name="accountNumber"
+          value={accountNumber}
+          description={<Translate text="Account number"/>}
+          onChange={props.onChange} 
+        />
+      </FormControl>
+      <FormControl className={classes.formControl}>
+        <GetBankCode
+          country="PH"
+          name="bankCode"
+          description={<Translate text="Bank code"/>}
+          onChange={props.onChange}
+          value={bankCode}
+        />
+      </FormControl>
+    </React.Fragment>
+  );
+}
+
+
+export function SouthAfricaRecipient (props){
+  const classes = useStyles();
+  const accountNumber = props.accountNumber ? props.accountNumber : '';
+  const swiftCode = props.swiftCode ? props.swiftCode : '';
+  
+  return(
+    <React.Fragment>
+      <FormControl className={classes.formControl}>
+        <FormInput
+          name="accountNumber"
+          value={accountNumber}
+          description={<Translate text="Account number"/>}
+          onChange={props.onChange} 
+        />
+      </FormControl>
+      <FormControl className={classes.formControl}>
+        <GetBankCode
+          country="ZA"
+          name="swiftCode"
+          description={<Translate text="Bank code"/>}
+          onChange={props.onChange}
+          value={swiftCode}
+        />
+      </FormControl>
+    </React.Fragment>
+  );
+}
+
+\
+
+
+export function BotswanaLocalRecipient (props){
+  const classes = useStyles();
+  const accountNumber = props.accountNumber ? props.accountNumber : '';
+  const bankCode = props.bankCode ? props.bankCode : '';
+  const branchCode = props.branchCode ? props.branchCode : '';
+  
+  return(
+    <React.Fragment>
+      <FormControl className={classes.formControl}>
+        <FormInput
+          name="accountNumber"
+          value={accountNumber}
+          description={<Translate text="Account number"/>}
+          onChange={props.onChange} 
+        />
+      </FormControl>
+      <FormControl className={classes.formControl}>
+        <GetBankCode
+          country="BW"
+          name="bankCode"
+          description={<Translate text="Bank code"/>}
+          onChange={props.onChange}
+          value={bankCode}
+        />
+      </FormControl>
+      <FormControl className={classes.formControl}>
+        <GetBranchCode
+          country="BW"
+          name="branchCode"
+          description={<Translate text="Branch code"/>}
+          onChange={props.onChange}
+          value={branchCode}
+          bankCode={bankCode}
+        />
+      </FormControl>
+    </React.Fragment>
+  );
+}
+
+
+
+
+
+
+export function NotAvaialableRecipient(props){
   const classes = useStyles();
   return(
     <FormControl className={classes.formControl}>

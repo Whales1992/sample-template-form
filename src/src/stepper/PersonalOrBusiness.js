@@ -1,27 +1,13 @@
-
 import React from 'react';
-import PersonalDetails from './PersonalDetails.js'
-import BusinessDetails from './BusinessDetails.js'
+import PersonalDetails from '../components/PersonalDetails.js'
+import BusinessDetails from '../components/BusinessDetails.js'
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import Paper from '@material-ui/core/Paper';
 import { Translate } from 'react-translated';
-import { makeStyles } from '@material-ui/core/styles';
-
-const useStyles = makeStyles(theme => ({
-  tabPanel: {
-    margin: theme.spacing(1),
-    minWidth: 200,
-    width: `100%`,
-    }
-  }
-));
-
-
-
+import useStyles from '../styles.js'
 
 
 export default class PersonalOrBusinessContainer extends React.Component {

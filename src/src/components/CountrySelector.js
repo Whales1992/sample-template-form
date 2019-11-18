@@ -1,23 +1,10 @@
 import React from 'react';
 import FormControl from '@material-ui/core/FormControl';
-import { makeStyles } from '@material-ui/core/styles';
 import { Translate } from 'react-translated';
 import NativeSelect from '@material-ui/core/NativeSelect';
 import InputLabel from '@material-ui/core/InputLabel';
-import Grid from '@material-ui/core/Grid';
-
-const useStyles = makeStyles(theme => ({
-  formControl: {
-    margin: theme.spacing(1),
-    minWidth: 200,
-    width: `80%`,
-  },
-  root: {
-    flexGrow: 1,
-    margin: theme.spacing(2)
-  },
-
-}));
+import useStyles from '../styles.js'
+import PropTypes from 'prop-types';
 
 
 export default class CountriesDropdownContainer extends React.Component{
@@ -54,6 +41,15 @@ export default class CountriesDropdownContainer extends React.Component{
   }
 }
 
+
+CountriesDropdownContainer.propTypes = {
+  city: PropTypes.string,
+  postCode: PropTypes.string,
+  addressLine: PropTypes.string
+};
+
+
+
 function CountriesDropdown(props){
   const classes = useStyles();
 
@@ -75,3 +71,4 @@ function CountriesDropdown(props){
       </FormControl>
   )
 }
+

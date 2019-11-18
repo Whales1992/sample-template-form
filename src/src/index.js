@@ -1,12 +1,58 @@
 import React from "react";
+import Grid from '@material-ui/core/Grid';
 import BankDeets from './components/BankDeets.js'
 import LanguageSelector from './components/LanguageSelector.js'
-import Grid from '@material-ui/core/Grid';
 import CountrySelector from './components/CountrySelector.js'
 import CurrencySelector from './components/CurrencySelector.js'
 import RecipientSelector from './components/RecipientSelector.js'
 import PersonalDetails from './components/PersonalDetails.js'
-import BankDetails from './components/BankDetails.js'
+import BusinessDetails from './components/BusinessDetails.js'
+import Address from './components/Address.js'
+import BankDetailsSelector from './components/BankDetailsSelector.js'
+import BankDeetsStepper from './stepper/BankDeetsStepper.js'
+import {IbanFormContainer} from './simple/SimpleForm.js'
+import {BangladeshFormContainer} from './simple/SimpleForm.js'
+import {
+  IbanRecipient,
+  SwiftRecipient,
+  SortCodeRecipient,
+  SwedishLocalRecipient,
+  AbaRecipient,
+  AustralianLocalRecipient,
+  AustralianBusinessRecipient,
+  CanadianRecipient,
+  PolishLocalRecipient,
+  HungarianLocalRecipient,
+  IndianRecipient,
+  SingaporeanRecipient,
+  HongkongRecipient,
+  NewzealandRecipient,
+  CzechLocalRecipient,
+  BangladeshRecipient,
+  ChineseCardRecipient,
+  VietnamEarthportRecipient,
+  SwissLocalRecipient,
+  MalaysianLocalRecipient,
+  ArgentinaRecipient,
+  BrazilRecipient,
+  ChileRecipient,
+  ThailandRecipient,
+  EgyptLocalRecipient,
+  GhanaLocalRecipient,
+  KenyaLocalRecipient,
+  MexicanRecipient,
+  IndonesianRecipient,
+  JapaneseRecipient,
+  SriLankaRecipient,
+  MoroccoRecipient,
+  NigeriaRecipient,
+  NepalRecipient,
+  PeruRecipient,
+  PhilippinesRecipient,
+  SouthAfricaRecipient,
+  BotswanaLocalRecipient,
+  NotAvaialableRecipient
+} from './bankdetails/BankDetails.js'
 
 class BankDeetsWrapper extends React.Component{
   constructor(props){
@@ -29,11 +75,61 @@ class BankDeetsWrapper extends React.Component{
         <Grid container direction="row" justify="flex-end">
           <LanguageSelector language={this.state.language} setLanguage={this.setLanguage} />
         </Grid>
-        <BankDeets language={this.state.language} {...this.props}/>
+        <BankDeets language={this.state.language} {...this.props} render={props => <BankDeetsStepper {...props}/>} />
       </div>
     )
   }
 }
 
 export default BankDeetsWrapper
-export {BankDeets, CountrySelector, CurrencySelector, RecipientSelector, PersonalDetails, BankDetails}
+export {
+BankDeets,
+LanguageSelector,
+CountrySelector,
+CurrencySelector,
+RecipientSelector,
+PersonalDetails,
+BusinessDetails,
+Address,
+BankDetailsSelector,
+BankDeetsStepper,
+IbanFormContainer,
+BangladeshFormContainer,
+IbanRecipient,
+SwiftRecipient,
+SortCodeRecipient,
+SwedishLocalRecipient,
+AbaRecipient,
+AustralianLocalRecipient,
+AustralianBusinessRecipient,
+CanadianRecipient,
+PolishLocalRecipient,
+HungarianLocalRecipient,
+IndianRecipient,
+SingaporeanRecipient,
+HongkongRecipient,
+NewzealandRecipient,
+CzechLocalRecipient,
+BangladeshRecipient,
+ChineseCardRecipient,
+VietnamEarthportRecipient,
+SwissLocalRecipient,
+MalaysianLocalRecipient,
+ArgentinaRecipient,
+BrazilRecipient,
+ChileRecipient,
+ThailandRecipient,
+EgyptLocalRecipient,
+GhanaLocalRecipient,
+KenyaLocalRecipient,
+MexicanRecipient,
+IndonesianRecipient,
+JapaneseRecipient,
+SriLankaRecipient,
+MoroccoRecipient,
+NigeriaRecipient,
+NepalRecipient,
+PeruRecipient,
+PhilippinesRecipient,
+NotAvaialableRecipient
+}
