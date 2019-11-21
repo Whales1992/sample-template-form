@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
-import BankDeets, {IbanFormContainer, BangladeshFormContainer} from './src/index.js'
-// import BankDeets, {IbanFormContainer, BangladeshFormContainer} from 'bankdeets'
+// import BankDeets, {IbanFormContainer, BangladeshFormContainer} from './src/index.js'
+import BankDeets, {IbanFormContainer, BangladeshFormContainer} from 'bankdeets'
 import Grid from '@material-ui/core/Grid';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
