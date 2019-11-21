@@ -44,9 +44,9 @@ export default function SubmitButton(props){
             variant="contained"
             className={classes.buttonSuccess}
             onClick={props.handleReset}
-            disabled={props.submitSuccess}
+            disabled={false}
           >
-            <Translate text="Thank you"/>
+            <Translate text="Add another one"/>
           </Button>
         </FormControl>
       </React.Fragment>
