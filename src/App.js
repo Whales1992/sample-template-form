@@ -172,9 +172,31 @@ function Introduction(props){
   return (
     <div>
       <h1>{"<BankDeets/>"}</h1>
-      <a href="https://github.com/321k/bankdeets">Github</a> | <a href="https://twitter.com/321k">Twitter</a> | <a href="https://github.com/321k/bankdeets/issues">Bugs</a>
+      <a href="https://github.com/321k/bankdeets">Github</a> | <a href="https://twitter.com/321k">Twitter</a> | <a href="https://github.com/321k/bankdeets/issues">Bugs</a> | <MailingList/>
     </div>
   )
+}
+
+class MailingList extends React.Component{
+  constructor(props){
+    super(props);
+    this.track = this.track.bind(this);
+  }
+
+  track(){
+    ReactGA.event({
+      category: 'User',
+      action: 'Clicked mailing list link'
+    });
+  }
+
+  render(){
+    return (
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSe-MoggnFbzRQoNgJ73xsoHLxh8wqwkRfeMjtVCYOlQc2nexw/viewform?usp=sf_link" onClick={this.track}>
+        Mailing list
+      </a>
+    )
+  }
 }
 
 function Map(props){
