@@ -46,13 +46,13 @@ function Error (props){
   return (
     <div>
     <h2>Invalid bank details</h2>
-      {
-        props.response.errors ? props.response.errors.map(error => (
-          <div key={error.message} styles={{margin: 10, padding: 10}}>
-            <div>{error.message}</div>
-            <br/>
-          </div>
-        )) : ''
+    {
+      props.response.errors ? props.response.errors.map(error => (
+        <div key={error.message} styles={{margin: 10, padding: 10}}>
+          <div>{error.message}</div>
+          <br/>
+        </div>
+      )) : ''
     }
   </div>
   )      
