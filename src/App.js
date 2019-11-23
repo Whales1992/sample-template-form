@@ -138,31 +138,28 @@ function App() {
   const classes = useStyles();
 
   return (
-    <div>
-      <div className="App">
-        <div style={{position: 'relative', top: 30}}>
-          <Container maxWidth="sm">
-            <CssBaseline />
-            <Introduction />
-            <Paper className={classes.paper}>
-              <BankDeets/>
-            </Paper>
-            <ApiDocs/>
-            <h1>Other examples</h1>
-            <p>Collect only IBANs</p>
-            <Paper className={classes.paper}>
-              <IbanFormContainer />
-            </Paper>
+    <div className="App">
+      <div style={{position: 'relative', top: 30}}>
+        <Container maxWidth="sm">
+          <CssBaseline />
+          <Introduction />
+          <Paper className={classes.paper}>
+            <BankDeets/>
+          </Paper>
+          <ApiDocs/>
+          <h1>Other examples</h1>
+          <p>Collect only IBANs</p>
+          <Paper className={classes.paper}>
+            <IbanFormContainer />
+          </Paper>
 
-            <p>Or Bangladeshi taka</p>
-            <Paper className={classes.paper}>
-              <BangladeshFormContainer />
-            </Paper>
-          </Container>
-        </div>
-        <Map />
+          <p>Or Bangladeshi taka</p>
+          <Paper className={classes.paper}>
+            <BangladeshFormContainer />
+          </Paper>
+        </Container>
       </div>
-
+      <Map />
     </div>
   );
 }
