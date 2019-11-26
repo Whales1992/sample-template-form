@@ -21,6 +21,8 @@ export default class BankDeets extends React.Component {
     this.state = {
       beneficiaryDetails: {
         country: 'USA',
+        countryTwoCharCode: 'US',
+        addressState: '',
         currency: 'USD',
         bankDetailsType: 'ABA',
         firstName: '',
@@ -47,6 +49,7 @@ export default class BankDeets extends React.Component {
     this.clearBankDetails = this.clearBankDetails.bind(this);
     this.validateBankDetails = this.validateBankDetails.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.getTwoCharCountryCode = this.getTwoCharCountryCode.bind(this);
   }
 
   handleCountryChange (newVal, actionMeta) {
@@ -64,9 +67,16 @@ export default class BankDeets extends React.Component {
     const name = target.name ? target.name : target.id
     let beneficiaryDetails = this.state.beneficiaryDetails
     beneficiaryDetails[name] = target.value
+
+    if (name==='country'){
+      beneficiaryDetails['countryTwoCharCode'] = this.getTwoCharCountryCode()
+    }
+
+
     this.setState({
       beneficiaryDetails: beneficiaryDetails
     })
+
   }
 
   handleBankDetailsChange(event){
@@ -86,21 +96,36 @@ export default class BankDeets extends React.Component {
     })
   }
 
-
-  validateBankDetails(){
-    this.setState({loading: true})
-    let details = {...this.state.bankDetails}
+  getTwoCharCountryCode(){
     const alpha3Country = this.state.beneficiaryDetails.country
     const alpha2Country = currencies.filter(country => (
       country.country_iso_3_char_code === alpha3Country
     ))[0].country_iso_2_char_code
+    return alpha2Country
+  }
+
+
+  validateBankDetails(){
+    this.setState({loading: true})
+    let details = {...this.state.bankDetails}
 
     details['legalType'] = this.state.beneficiaryDetails.legalType
-    details['address'] = {
-      country: alpha2Country,
-      city: this.state.beneficiaryDetails.city,
-      postCode: this.state.beneficiaryDetails.postCode,
-      firstLine: this.state.beneficiaryDetails.addressLine
+
+    if(this.state.beneficiaryDetails.addressState === ''){
+      details['address'] = {
+        country: this.getTwoCharCountryCode(),
+        city: this.state.beneficiaryDetails.city,
+        postCode: this.state.beneficiaryDetails.postCode,
+        firstLine: this.state.beneficiaryDetails.addressLine
+      }
+    } else {
+      details['address'] = {
+        country: this.getTwoCharCountryCode(),
+        city: this.state.beneficiaryDetails.city,
+        postCode: this.state.beneficiaryDetails.postCode,
+        firstLine: this.state.beneficiaryDetails.addressLine,
+        state: this.state.beneficiaryDetails.addressState
+      }
     }
 
     let accountHolderName = ''

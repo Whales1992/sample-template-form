@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
-// import BankDeets, {IbanFormContainer, BangladeshFormContainer} from './src/index.js'
-import BankDeets, {IbanFormContainer, BangladeshFormContainer} from 'bankdeets'
+import BankDeets, {IbanFormContainer, BangladeshFormContainer} from './src/index.js'
+// import BankDeets, {IbanFormContainer, BangladeshFormContainer} from 'bankdeets'
 import Grid from '@material-ui/core/Grid';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
@@ -221,260 +221,289 @@ function ApiDocs(props){
       <Grid item xs={12} className={classes.grid}>
         <h2>Installation</h2>
         npm install bankdeets
-            <h2>Supported countries</h2>
-            <List>
-              <ListItem>
-                <ListItemIcon><span role="img" aria-label="flag">🇪🇺</span></ListItemIcon>
-                <ListItemText>Eurozone</ListItemText>
-              </ListItem>
-              <ListItem>
-                <ListItemIcon><span role="img" aria-label="flag">🇺🇸</span></ListItemIcon>
-                <ListItemText>United States</ListItemText>
-              </ListItem>
-              <ListItem>
-                <ListItemIcon><span role="img" aria-label="flag">🇬🇧</span></ListItemIcon>
-                <ListItemText>United Kingdom</ListItemText>
-              </ListItem>
-              <ListItem>
-                <ListItemIcon><span role="img" aria-label="flag">🇧🇬</span></ListItemIcon>
-                <ListItemText>Bulgaria</ListItemText>
-              </ListItem>
-              <ListItem>
-                <ListItemIcon><span role="img" aria-label="flag">🇩🇰</span></ListItemIcon>
-                <ListItemText>Denmark</ListItemText>
-              </ListItem>
-              <ListItem>
-                <ListItemIcon><span role="img" aria-label="flag">🇳🇴</span></ListItemIcon>
-                <ListItemText>Norway</ListItemText>
-              </ListItem>
-              <ListItem>
-                <ListItemIcon><span role="img" aria-label="flag">🇸🇪</span></ListItemIcon>
-                <ListItemText>Sweden</ListItemText>
-              </ListItem>
-              <ListItem>
-                <ListItemIcon><span role="img" aria-label="flag">🇦🇹</span></ListItemIcon>
-                <ListItemText>Austria</ListItemText>
-              </ListItem>
-              <ListItem>
-                <ListItemIcon><span role="img" aria-label="flag">🇧🇪</span></ListItemIcon>
-                <ListItemText>Belgium</ListItemText>
-              </ListItem>
-              <ListItem>
-                <ListItemIcon><span role="img" aria-label="flag">🇨🇾</span></ListItemIcon>
-                <ListItemText>Cyprus</ListItemText>
-              </ListItem>
-              <ListItem>
-                <ListItemIcon><span role="img" aria-label="flag">🇪🇪</span></ListItemIcon>
-                <ListItemText>Estonia</ListItemText>
-              </ListItem>
-              <ListItem>
-                <ListItemIcon><span role="img" aria-label="flag">🇫🇮</span></ListItemIcon>
-                <ListItemText>Finland</ListItemText>
-              </ListItem>
-              <ListItem>
-                <ListItemIcon><span role="img" aria-label="flag">🇫🇷</span></ListItemIcon>
-                <ListItemText>France</ListItemText>
-              </ListItem>
-              <ListItem>
-                <ListItemIcon><span role="img" aria-label="flag">🇩🇪</span></ListItemIcon>
-                <ListItemText>Germany</ListItemText>
-              </ListItem>
-              <ListItem>
-                <ListItemIcon><span role="img" aria-label="flag">🇬🇷</span></ListItemIcon>
-                <ListItemText>Greece</ListItemText>
-              </ListItem>
-              <ListItem>
-                <ListItemIcon><span role="img" aria-label="flag">🇮🇪</span></ListItemIcon>
-                <ListItemText>Ireland</ListItemText>
-              </ListItem>
-              <ListItem>
-                <ListItemIcon><span role="img" aria-label="flag">🇮🇹</span></ListItemIcon>
-                <ListItemText>Italy</ListItemText>
-              </ListItem>
-              <ListItem>
-                <ListItemIcon><span role="img" aria-label="flag">🇱🇻</span></ListItemIcon>
-                <ListItemText>Latvia</ListItemText>
-              </ListItem>
-              <ListItem>
-                <ListItemIcon><span role="img" aria-label="flag">🇱🇹</span></ListItemIcon>
-                <ListItemText>Lithuania</ListItemText>
-              </ListItem>
-              <ListItem>
-                <ListItemIcon><span role="img" aria-label="flag">🇱🇺</span></ListItemIcon>
-                <ListItemText>Luxembourg</ListItemText>
-              </ListItem>
-              <ListItem>
-                <ListItemIcon><span role="img" aria-label="flag">🇲🇹</span></ListItemIcon>
-                <ListItemText>Malta</ListItemText>
-              </ListItem>
-              <ListItem>
-                <ListItemIcon><span role="img" aria-label="flag">🇳🇱</span></ListItemIcon>
-                <ListItemText>Netherlands</ListItemText>
-              </ListItem>
-              <ListItem>
-                <ListItemIcon><span role="img" aria-label="flag">🇵🇹</span></ListItemIcon>
-                <ListItemText>Portugal</ListItemText>
-              </ListItem>
-              <ListItem>
-                <ListItemIcon><span role="img" aria-label="flag">🇸🇰</span></ListItemIcon>
-                <ListItemText>Slovakia</ListItemText>
-              </ListItem>
-              <ListItem>
-                <ListItemIcon><span role="img" aria-label="flag">🇸🇮</span></ListItemIcon>
-                <ListItemText>Slovenia</ListItemText>
-              </ListItem>
-              <ListItem>
-                <ListItemIcon><span role="img" aria-label="flag">🇪🇸</span></ListItemIcon>
-                <ListItemText>Spain</ListItemText>
-              </ListItem>
-              <ListItem>
-                <ListItemIcon><span role="img" aria-label="flag">🇦🇺</span></ListItemIcon>
-                <ListItemText>Australia</ListItemText>
-              </ListItem>
-              <ListItem>
-                <ListItemIcon><span role="img" aria-label="flag">🇨🇦</span></ListItemIcon>
-                <ListItemText>Canada</ListItemText>
-              </ListItem>
-              <ListItem>
-                <ListItemIcon><span role="img" aria-label="flag">🇵🇱</span></ListItemIcon>
-                <ListItemText>Poland</ListItemText>
-              </ListItem>
-              <ListItem>
-                <ListItemIcon><span role="img" aria-label="flag">🇭🇺</span></ListItemIcon>
-                <ListItemText>Hungary</ListItemText>
-              </ListItem>
-              <ListItem>
-                <ListItemIcon><span role="img" aria-label="flag">🇮🇳</span></ListItemIcon>
-                <ListItemText>India</ListItemText>
-              </ListItem>
-              <ListItem>
-                <ListItemIcon><span role="img" aria-label="flag">🇸🇬</span></ListItemIcon>
-                <ListItemText>Singaproe</ListItemText>
-              </ListItem>
-              <ListItem>
-                <ListItemIcon><span role="img" aria-label="flag">🇭🇰</span></ListItemIcon>
-                <ListItemText>Hong Kong</ListItemText>
-              </ListItem>
-              <ListItem>
-                <ListItemIcon><span role="img" aria-label="flag">🇳🇿</span></ListItemIcon>
-                <ListItemText>New Zealand</ListItemText>
-              </ListItem>
-              <ListItem>
-                <ListItemIcon><span role="img" aria-label="flag">🇨🇿</span></ListItemIcon>
-                <ListItemText>Czechia</ListItemText>
-              </ListItem>
-              <ListItem>
-                <ListItemIcon><span role="img" aria-label="flag">🇧🇩</span></ListItemIcon>
-                <ListItemText>Bangladesh</ListItemText>
-              </ListItem>
-              <ListItem>
-                <ListItemIcon><span role="img" aria-label="flag">🇻🇳</span></ListItemIcon>
-                <ListItemText>Vietnam</ListItemText>
-              </ListItem>
-              <ListItem>
-                <ListItemIcon><span role="img" aria-label="flag">🇨🇭</span></ListItemIcon>
-                <ListItemText>Switzerland</ListItemText>
-              </ListItem>
-              <ListItem>
-                <ListItemIcon><span role="img" aria-label="flag">🇲🇾</span></ListItemIcon>
-                <ListItemText>Malaysia</ListItemText>
-              </ListItem>
-              <ListItem>
-                <ListItemIcon><span role="img" aria-label="flag">🇵🇰</span></ListItemIcon>
-                <ListItemText>Pakistan</ListItemText>
-              </ListItem>
-              <ListItem>
-                <ListItemIcon><span role="img" aria-label="flag">🇮🇱</span></ListItemIcon>
-                <ListItemText>Israel</ListItemText>
-              </ListItem>
-              <ListItem>
-                <ListItemIcon><span role="img" aria-label="flag">🇹🇷</span></ListItemIcon>
-                <ListItemText>Turkey</ListItemText>
-              </ListItem>
-              <ListItem>
-                <ListItemIcon><span role="img" aria-label="flag">🇧🇷</span></ListItemIcon>
-                <ListItemText>Brazil</ListItemText>
-              </ListItem>
-              <ListItem>
-                <ListItemIcon><span role="img" aria-label="flag">🇨🇱</span></ListItemIcon>
-                <ListItemText>Chile</ListItemText>
-              </ListItem>
-              <ListItem>
-                <ListItemIcon><span role="img" aria-label="flag">🇦🇷</span></ListItemIcon>
-                <ListItemText>Argentina</ListItemText>
-              </ListItem>
-              <ListItem>
-                <ListItemIcon><span role="img" aria-label="flag">🇹🇭</span></ListItemIcon>
-                <ListItemText>Thailand</ListItemText>
-              </ListItem>
-              <ListItem>
-                <ListItemIcon><span role="img" aria-label="flag">🇬🇭</span></ListItemIcon>
-                <ListItemText>Ghana</ListItemText>
-              </ListItem>
-              <ListItem>
-                <ListItemIcon><span role="img" aria-label="flag">🇧🇬</span></ListItemIcon>
-                <ListItemText>Bulgaria</ListItemText>
-              </ListItem>
-              <ListItem>
-                <ListItemIcon><span role="img" aria-label="flag">🇰🇪</span></ListItemIcon>
-                <ListItemText>Kenya</ListItemText>
-              </ListItem>
-              <ListItem>
-                <ListItemIcon><span role="img" aria-label="flag">🇪🇬</span></ListItemIcon>
-                <ListItemText>Egypt</ListItemText>
-              </ListItem>
-              <ListItem>
-                <ListItemIcon><span role="img" aria-label="flag">🇯🇵</span></ListItemIcon>
-                <ListItemText>Japan</ListItemText>
-              </ListItem>
-              <ListItem>
-                <ListItemIcon><span role="img" aria-label="flag">🇮🇩</span></ListItemIcon>
-                <ListItemText>Indonesia</ListItemText>
-              </ListItem>
-              <ListItem>
-                <ListItemIcon><span role="img" aria-label="flag">🇲🇽</span></ListItemIcon>
-                <ListItemText>Mexico</ListItemText>
-              </ListItem>
-              <ListItem>
-                <ListItemIcon><span role="img" aria-label="flag">🇵🇪</span></ListItemIcon>
-                <ListItemText>Peru</ListItemText>
-              </ListItem>
-              <ListItem>
-                <ListItemIcon><span role="img" aria-label="flag">🇲🇦</span></ListItemIcon>
-                <ListItemText>Morocco</ListItemText>
-              </ListItem>
-              <ListItem>
-                <ListItemIcon><span role="img" aria-label="flag">🇵🇭</span></ListItemIcon>
-                <ListItemText>Philippines</ListItemText>
-              </ListItem>
-              <ListItem>
-                <ListItemIcon><span role="img" aria-label="flag">🇬🇪</span></ListItemIcon>
-                <ListItemText>Georgia</ListItemText>
-              </ListItem>
-              <ListItem>
-                <ListItemIcon><span role="img" aria-label="flag">🇳🇵</span></ListItemIcon>
-                <ListItemText>Nepal</ListItemText>
-              </ListItem>
-              <ListItem>
-                <ListItemIcon><span role="img" aria-label="flag">🇳🇬</span></ListItemIcon>
-                <ListItemText>Nigeria</ListItemText>
-              </ListItem>
-              <ListItem>
-                <ListItemIcon><span role="img" aria-label="flag">🇱🇰</span></ListItemIcon>
-                <ListItemText>Sri Lanka</ListItemText>
-              </ListItem>
-              <ListItem>
-                <ListItemIcon><span role="img" aria-label="flag">🇧🇼</span></ListItemIcon>
-                <ListItemText>Botswana</ListItemText>
-              </ListItem>
-              <ListItem>
-                <ListItemIcon><span role="img" aria-label="flag">🇿🇦</span></ListItemIcon>
-                <ListItemText>South Africa</ListItemText>
-              </ListItem>
-            </List> 
+        
+        <h2>Features</h2>
+        <List>
+          <ListItem>
+            <ListItemIcon><span role="features" aria-label="features">🌐</span></ListItemIcon>
+            <ListItemText>Global currency coverage</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="features" aria-label="features">✅</span></ListItemIcon>
+            <ListItemText>Bank account detail validations</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="features" aria-label="features">📨</span></ListItemIcon>
+            <ListItemText>Prefilled bank names, countries and state names</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="features" aria-label="features">🧩</span></ListItemIcon>
+            <ListItemText>Modular components let you create your own version</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="features" aria-label="features">👩‍💻</span></ListItemIcon>
+            <ListItemText>Perfect for TransferWise integrations</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="features" aria-label="features">🌎</span></ListItemIcon>
+            <ListItemText>Tax ID collection to be compliant with Latin American regulations</ListItemText>
+          </ListItem>
+        </List>
 
-            Contribute to the list of supported currencies <a href="https://github.com/321k/bankdeets/blob/master/src/components/BankDetails.js">here</a> 
-        </Grid>
+        <h2>Supported countries</h2>
+        <List>
+          <ListItem>
+            <ListItemIcon><span role="img" aria-label="flag">🇪🇺</span></ListItemIcon>
+            <ListItemText>Eurozone</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="img" aria-label="flag">🇺🇸</span></ListItemIcon>
+            <ListItemText>United States</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="img" aria-label="flag">🇬🇧</span></ListItemIcon>
+            <ListItemText>United Kingdom</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="img" aria-label="flag">🇧🇬</span></ListItemIcon>
+            <ListItemText>Bulgaria</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="img" aria-label="flag">🇩🇰</span></ListItemIcon>
+            <ListItemText>Denmark</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="img" aria-label="flag">🇳🇴</span></ListItemIcon>
+            <ListItemText>Norway</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="img" aria-label="flag">🇸🇪</span></ListItemIcon>
+            <ListItemText>Sweden</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="img" aria-label="flag">🇦🇹</span></ListItemIcon>
+            <ListItemText>Austria</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="img" aria-label="flag">🇧🇪</span></ListItemIcon>
+            <ListItemText>Belgium</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="img" aria-label="flag">🇨🇾</span></ListItemIcon>
+            <ListItemText>Cyprus</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="img" aria-label="flag">🇪🇪</span></ListItemIcon>
+            <ListItemText>Estonia</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="img" aria-label="flag">🇫🇮</span></ListItemIcon>
+            <ListItemText>Finland</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="img" aria-label="flag">🇫🇷</span></ListItemIcon>
+            <ListItemText>France</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="img" aria-label="flag">🇩🇪</span></ListItemIcon>
+            <ListItemText>Germany</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="img" aria-label="flag">🇬🇷</span></ListItemIcon>
+            <ListItemText>Greece</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="img" aria-label="flag">🇮🇪</span></ListItemIcon>
+            <ListItemText>Ireland</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="img" aria-label="flag">🇮🇹</span></ListItemIcon>
+            <ListItemText>Italy</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="img" aria-label="flag">🇱🇻</span></ListItemIcon>
+            <ListItemText>Latvia</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="img" aria-label="flag">🇱🇹</span></ListItemIcon>
+            <ListItemText>Lithuania</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="img" aria-label="flag">🇱🇺</span></ListItemIcon>
+            <ListItemText>Luxembourg</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="img" aria-label="flag">🇲🇹</span></ListItemIcon>
+            <ListItemText>Malta</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="img" aria-label="flag">🇳🇱</span></ListItemIcon>
+            <ListItemText>Netherlands</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="img" aria-label="flag">🇵🇹</span></ListItemIcon>
+            <ListItemText>Portugal</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="img" aria-label="flag">🇸🇰</span></ListItemIcon>
+            <ListItemText>Slovakia</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="img" aria-label="flag">🇸🇮</span></ListItemIcon>
+            <ListItemText>Slovenia</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="img" aria-label="flag">🇪🇸</span></ListItemIcon>
+            <ListItemText>Spain</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="img" aria-label="flag">🇦🇺</span></ListItemIcon>
+            <ListItemText>Australia</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="img" aria-label="flag">🇨🇦</span></ListItemIcon>
+            <ListItemText>Canada</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="img" aria-label="flag">🇵🇱</span></ListItemIcon>
+            <ListItemText>Poland</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="img" aria-label="flag">🇭🇺</span></ListItemIcon>
+            <ListItemText>Hungary</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="img" aria-label="flag">🇮🇳</span></ListItemIcon>
+            <ListItemText>India</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="img" aria-label="flag">🇸🇬</span></ListItemIcon>
+            <ListItemText>Singaproe</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="img" aria-label="flag">🇭🇰</span></ListItemIcon>
+            <ListItemText>Hong Kong</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="img" aria-label="flag">🇳🇿</span></ListItemIcon>
+            <ListItemText>New Zealand</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="img" aria-label="flag">🇨🇿</span></ListItemIcon>
+            <ListItemText>Czechia</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="img" aria-label="flag">🇧🇩</span></ListItemIcon>
+            <ListItemText>Bangladesh</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="img" aria-label="flag">🇻🇳</span></ListItemIcon>
+            <ListItemText>Vietnam</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="img" aria-label="flag">🇨🇭</span></ListItemIcon>
+            <ListItemText>Switzerland</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="img" aria-label="flag">🇲🇾</span></ListItemIcon>
+            <ListItemText>Malaysia</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="img" aria-label="flag">🇵🇰</span></ListItemIcon>
+            <ListItemText>Pakistan</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="img" aria-label="flag">🇮🇱</span></ListItemIcon>
+            <ListItemText>Israel</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="img" aria-label="flag">🇹🇷</span></ListItemIcon>
+            <ListItemText>Turkey</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="img" aria-label="flag">🇧🇷</span></ListItemIcon>
+            <ListItemText>Brazil</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="img" aria-label="flag">🇨🇱</span></ListItemIcon>
+            <ListItemText>Chile</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="img" aria-label="flag">🇦🇷</span></ListItemIcon>
+            <ListItemText>Argentina</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="img" aria-label="flag">🇹🇭</span></ListItemIcon>
+            <ListItemText>Thailand</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="img" aria-label="flag">🇬🇭</span></ListItemIcon>
+            <ListItemText>Ghana</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="img" aria-label="flag">🇧🇬</span></ListItemIcon>
+            <ListItemText>Bulgaria</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="img" aria-label="flag">🇰🇪</span></ListItemIcon>
+            <ListItemText>Kenya</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="img" aria-label="flag">🇪🇬</span></ListItemIcon>
+            <ListItemText>Egypt</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="img" aria-label="flag">🇯🇵</span></ListItemIcon>
+            <ListItemText>Japan</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="img" aria-label="flag">🇮🇩</span></ListItemIcon>
+            <ListItemText>Indonesia</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="img" aria-label="flag">🇲🇽</span></ListItemIcon>
+            <ListItemText>Mexico</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="img" aria-label="flag">🇵🇪</span></ListItemIcon>
+            <ListItemText>Peru</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="img" aria-label="flag">🇲🇦</span></ListItemIcon>
+            <ListItemText>Morocco</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="img" aria-label="flag">🇵🇭</span></ListItemIcon>
+            <ListItemText>Philippines</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="img" aria-label="flag">🇬🇪</span></ListItemIcon>
+            <ListItemText>Georgia</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="img" aria-label="flag">🇳🇵</span></ListItemIcon>
+            <ListItemText>Nepal</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="img" aria-label="flag">🇳🇬</span></ListItemIcon>
+            <ListItemText>Nigeria</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="img" aria-label="flag">🇱🇰</span></ListItemIcon>
+            <ListItemText>Sri Lanka</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="img" aria-label="flag">🇧🇼</span></ListItemIcon>
+            <ListItemText>Botswana</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="img" aria-label="flag">🇿🇦</span></ListItemIcon>
+            <ListItemText>South Africa</ListItemText>
+          </ListItem>
+        </List> 
+
+          Contribute to the list of supported currencies <a href="https://github.com/321k/bankdeets/blob/master/src/components/BankDetails.js">here</a> 
+      </Grid>
       <Grid item xs={12}>        
         <h2>Supported languages</h2>  
           <List>
