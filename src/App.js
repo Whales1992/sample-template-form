@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
-import BankDeets, {IbanFormContainer, BangladeshFormContainer} from './src/index.js'
-// import BankDeets, {IbanFormContainer, BangladeshFormContainer} from 'bankdeets'
+// import BankDeets, {IbanFormContainer, BangladeshFormContainer} from './src/index.js'
+import {BankDeets, IbanFormContainer, BangladeshFormContainer, LanguageSelector, BankDeetsStepper} from 'bankdeets'
 import Grid from '@material-ui/core/Grid';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
@@ -113,7 +113,15 @@ const supported_countries = [
 'MAR',
 'LKA',
 'BWA',
-'ZAF'
+'ZAF',
+'CIV',
+'BEN',
+'BFA',
+'GIN',
+'MLI',
+'NER',
+'SEN',
+'TGO',
 ]
 
 const useStyles = makeStyles(theme => ({
@@ -144,7 +152,7 @@ function App() {
           <CssBaseline />
           <Introduction />
           <Paper className={classes.paper}>
-            <BankDeets/>
+            <BankDeetsWrapper/>  
           </Paper>
           <ApiDocs/>
           <h1>Other examples</h1>
@@ -165,6 +173,35 @@ function App() {
 }
 
 
+class BankDeetsWrapper extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      language: 'en'
+    }
+    this.setLanguage = this.setLanguage.bind(this);
+  }
+
+  setLanguage(event){
+    this.setState({
+      language: event.target.value
+    });
+  }
+
+  render(){
+    return(
+      <React.Fragment>
+        <Grid container direction="row" justify="flex-end">
+          <LanguageSelector language={this.state.language} setLanguage={this.setLanguage} />
+        </Grid>
+        <BankDeets language={this.state.language} render={props => <BankDeetsStepper {...props}/>} />
+      </React.Fragment>
+    )
+  }
+}
+
+
+
 function Introduction(props){
   return (
     <div>
@@ -173,6 +210,7 @@ function Introduction(props){
     </div>
   )
 }
+
 
 class MailingList extends React.Component{
   constructor(props){
@@ -499,6 +537,38 @@ function ApiDocs(props){
           <ListItem>
             <ListItemIcon><span role="img" aria-label="flag">🇿🇦</span></ListItemIcon>
             <ListItemText>South Africa</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="img" aria-label="flag">🇨🇮</span></ListItemIcon>
+            <ListItemText>Côte d'Ivoire</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="img" aria-label="flag">🇧🇯</span></ListItemIcon>
+            <ListItemText>Benin</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="img" aria-label="flag">🇧🇫</span></ListItemIcon>
+            <ListItemText>Burkina Faso</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="img" aria-label="flag">🇬🇳</span></ListItemIcon>
+            <ListItemText>Guinea</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="img" aria-label="flag">🇲🇱</span></ListItemIcon>
+            <ListItemText>Mali</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="img" aria-label="flag">🇳🇪</span></ListItemIcon>
+            <ListItemText>Niger</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="img" aria-label="flag">🇸🇳</span></ListItemIcon>
+            <ListItemText>Senegal</ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><span role="img" aria-label="flag">🇹🇬</span></ListItemIcon>
+            <ListItemText>Togo</ListItemText>
           </ListItem>
         </List> 
 
