@@ -48,7 +48,6 @@ function IndianRecipient (props){
   const accountNumber = props.accountNumber ? props.accountNumber : '';
   return(
       <React.Fragment>
-        <FormControl className={classes.formControl}>
           <FormInput
             name="ifscCode"
             value={ifscCode}
@@ -58,8 +57,6 @@ function IndianRecipient (props){
             error={props.ifscError}
             helperText={<Translate text="Incorrect IFSC code" />}
           />
-        </FormControl>
-        <FormControl className={classes.formControl}>
           <FormInput
             name="accountNumber"
             value={accountNumber}
@@ -69,7 +66,6 @@ function IndianRecipient (props){
             error={props.accountNumberError}
             helperText={<Translate text="Incorrect account number"/>}
           />
-        </FormControl>
       </React.Fragment>
   );
 }

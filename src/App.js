@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-// import BankDeets, {IbanFormContainer, BangladeshFormContainer} from './src/index.js'
+// import {BankDeets, IbanFormContainer, BangladeshFormContainer, LanguageSelector, BankDeetsStepper} from './src/index.js'
 import {BankDeets, IbanFormContainer, BangladeshFormContainer, LanguageSelector, BankDeetsStepper} from 'bankdeets'
 import Grid from '@material-ui/core/Grid';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -204,10 +204,10 @@ class BankDeetsWrapper extends React.Component{
 
 function Introduction(props){
   return (
-    <div>
+    <center>
       <h1>{"<BankDeets/>"}</h1>
       <a href="https://github.com/321k/bankdeets">Github</a> | <a href="https://twitter.com/321k">Twitter</a> | <a href="https://github.com/321k/bankdeets/issues">Bugs</a> | <MailingList/>
-    </div>
+    </center>
   )
 }
 
